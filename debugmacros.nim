@@ -73,10 +73,12 @@ macro dbgAssert*(condition: expr, params:varargs[typed]) : untyped =
     ))
   result = newBlockStmt(stmtlist)
 
-when true:
+when isMainModule:
+  ## Example use
   var x = 22; var y = 33
   dbgEcho("Test output",x,y)
-  dbgEcho("Bla")
+  dbgEcho("Single Output")
   
-  dbgAssert(x == y, x,y)
+  dbgAssert(x == y, "x and y should be equal", x,y)
+
 
