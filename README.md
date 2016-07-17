@@ -11,7 +11,8 @@ import debugmacros
 var x = 11
 var y = 22
 dbgEcho("Some text", x, y)
-dbgAssert(x == y, "x and y should be equal", x,y)```
+dbgAssert(x == y, "x and y should be equal", x,y)
+```
 
 yields the output
 
