@@ -43,7 +43,6 @@ macro dbgEcho*(params:varargs[typed]) : untyped =
   stmtlist.add(newCall(ident("echo"),
     if len(dbgStr) > 0: ident(tmpVar)
     else: newLit("")))
-
   result = newBlockStmt(stmtlist)
 
 macro dbgAssert*(condition: expr, params:varargs[typed]) : untyped =
@@ -77,8 +76,9 @@ when isMainModule:
   ## Example use
   var x = 22; var y = 33
   dbgEcho("Test output",x,y)
+  # prints 'Test ouput x:22, y:33'
   dbgEcho("Single Output")
+  # prints 'Single Output'
   
   dbgAssert(x == y, "x and y should be equal", x,y)
-
-
+  # raises an assertion and prints 'x == y - x and y should be equal x:22, y:33'
